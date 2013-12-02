@@ -1,9 +1,9 @@
 {
     "name": "v8-argv"
   , "version": "0.1.0"
-  , "description": "Proxy v8 argv for node-based bins."
+  , "description": "Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custum script."
   , "author": "Jake Luer <jake@alogicalparadox.com> (http://alogicalparadox.com)"
-  , "license": "MIT"
+  , "license": "WTFPL"
   , "keywords": [ "v8", "argv" ]
   , "repository": {
         "type": "git"

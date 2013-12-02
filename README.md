@@ -1,6 +1,6 @@
-# v8-argv
+# v8-argv [![Build Status](https://travis-ci.org/logicalparadox/v8-argv.png?branch=master)](https://travis-ci.org/logicalparadox/v8-argv)
 
-> Proxy v8 argv for node-based bins.
+> Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custum script.
 
 #### Installation
 
@@ -9,6 +9,7 @@
     npm install v8-argv
 
 #### Usage
+
 
 - **@param** _{String}_ path to resolve to actual bin (repeatable)
 
@@ -25,6 +26,10 @@ require('v8-argv')(__dirname, '_app');
 #!/usr/bin/env node
 program.parse(process.argv); // etc...
 ```
+
+#### Test
+
+    npm test
 
 #### Credit Due
 
