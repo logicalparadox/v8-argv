@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var assert = require('assert');
+assert(3 === process.argv.length, 'too many arguments');
+assert('--keep' === process.argv[2], 'missing --keep');
+process.exit(0);
