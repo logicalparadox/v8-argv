@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../index')(__dirname, '_bin');
+require('../index')(__dirname + '/_bin');

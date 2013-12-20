@@ -4,15 +4,14 @@ var spawn = require('child_process').spawn;
 
 /**
  * Proxy v8 args to node while forwarding the
- * remaining arguments to a custum script.
+ * remaining arguments to a custom script.
  *
  * @param {String} path to resolve
  */
 
 module.exports = function() {
   assert(arguments.length > 0, 'v8-argv: path required');
-  var paths = [].slice.call(arguments);
-  var args = [ resolve.apply(null, paths) ];
+  var args = [].slice.call(arguments);
   var argv = process.argv.slice(2);
 
   argv.forEach(function(arg) {
