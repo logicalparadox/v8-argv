@@ -1,23 +1,26 @@
 {
-    "name": "v8-argv"
-  , "version": "0.1.0"
-  , "description": "Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custum script."
-  , "author": "Jake Luer <jake@alogicalparadox.com> (http://alogicalparadox.com)"
-  , "license": "WTFPL"
-  , "keywords": [ "v8", "argv" ]
-  , "repository": {
-        "type": "git"
-      , "url": "git@github.com:logicalparadox/v8-argv.git"
-    }
-  , "engines": {
-      "node": "*"
-    }
-  , "main": "./index"
-  , "scripts": {
-      "test": "node test.js"
-    }
-  , "dependencies": {}
-  , "devDependencies": {
-      "nixt": "*"
-    }
+  "name": "v8-argv",
+  "version": "0.1.0",
+  "description": "Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custom script.",
+  "author": "Jake Luer <jake@alogicalparadox.com> (http://alogicalparadox.com)",
+  "license": "WTFPL",
+  "keywords": [
+    "v8",
+    "argv"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:logicalparadox/v8-argv.git"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "main": "./index",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nixt": "0.0.4"
+  }
 }

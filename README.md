@@ -1,6 +1,6 @@
 # v8-argv [![Build Status](https://travis-ci.org/logicalparadox/v8-argv.png?branch=master)](https://travis-ci.org/logicalparadox/v8-argv)
 
-> Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custum script.
+> Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custom script.
 
 #### Installation
 
@@ -17,7 +17,8 @@
 
 ```js
 #!/usr/bin/env node
-require('v8-argv')(__dirname, '_app');
+require('v8-argv')(__dirname + '/_app');
+// require('v8-argv')('--harmony', __dirname + '/_app');
 ```
 
 ##### bin/_app
