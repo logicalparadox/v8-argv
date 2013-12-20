@@ -1,6 +1,6 @@
 {
   "name": "v8-argv",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custom script.",
   "author": "Jake Luer <jake@alogicalparadox.com> (http://alogicalparadox.com)",
   "license": "WTFPL",
