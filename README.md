@@ -1,6 +1,6 @@
 # v8-argv [![Build Status](https://travis-ci.org/logicalparadox/v8-argv.png?branch=master)](https://travis-ci.org/logicalparadox/v8-argv)
 
-> Proxy v8 argv (including harmony) to v8/node while forwarding the remaining arguments to a custom script.
+> handle special v8 args `--harmony`, `--debug` etc..
 
 #### Installation
 
@@ -10,22 +10,14 @@
 
 #### Usage
 
-
-- **@param** _{String}_ path to resolve to actual bin (repeatable)
+  v8-argv exports a `Boolean` telling you if it handled any special v8 arguments. If id did then you are going to want to prevent your scripts body from running since a second process has been spawned which will run that.
 
 ##### bin/app
 
 ```js
 #!/usr/bin/env node
-require('v8-argv')(__dirname + '/_app');
-// require('v8-argv')('--harmony', __dirname + '/_app');
-```
-
-##### bin/_app
-
-```js
-#!/usr/bin/env node
-program.parse(process.argv); // etc...
+if (require('v8-argv')) return;
+// script body goes here
 ```
 
 #### Test
