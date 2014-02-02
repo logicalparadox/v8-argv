@@ -1,2 +1,7 @@
 #!/usr/bin/env node
-require('../index')(__dirname + '/_bin');
+if (require('../index')) return;
+
+var assert = require('assert');
+assert(3 === process.argv.length, 'expects 3 arguments');
+assert('--keep' === process.argv[2], 'missing --keep');
+process.exit(0);

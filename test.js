@@ -17,11 +17,12 @@ var TESTS = [
   '--harmony-generators',
   '--prof',
   // '--trace'  // no exit code
+  '' // no special args
 ];
 
 
 (function run(i) {
-  if (!TESTS[i]) {
+  if (i >= TESTS.length) {
    if (errors.length) console.log('');
    errors.forEach(function(err) {
     console.error(err.message);
