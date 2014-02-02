@@ -26,7 +26,7 @@ if (!process.execArgv.length) {
         args.unshift(arg);
         break;
       default:
-        if (0 == arg.indexOf('--trace')) special.unshift(arg);
+        if (0 == arg.indexOf('--trace')) args.unshift(arg);
         else args.push(arg);
         break;
     }
