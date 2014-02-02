@@ -1,35 +1,22 @@
-var assert = require('assert');
-var resolve = require('path').resolve;
-var spawn = require('child_process').spawn;
 
-/**
- * Proxy v8 args to node while forwarding the
- * remaining arguments to a custom script.
- *
- * @param {String} path to resolve
- */
+module.exports = false;
 
-module.exports = function() {
-  assert(arguments.length > 0, 'v8-argv: path required');
-  var args = [].slice.call(arguments);
+if (!process.execArgv.length) {
+  var spawn = require('child_process').spawn;
+
+  var args = [process.argv[1]];
   var argv = process.argv.slice(2);
 
   argv.forEach(function(arg) {
     var flag = arg.split('=')[0];
 
     switch (flag) {
-      case '-d':
-        args.unshift('--debug');
-        break;
+      case '-d': arg = '--debug';
       case 'debug':
       case '--debug':
       case '--debug-brk':
-        args.unshift(arg);
-        break;
-      case '-gc':
+      case '-gc': arg = '--expose-gc';
       case '--expose-gc':
-        args.unshift('--expose-gc');
-        break;
       case '--gc-global':
       case '--harmony':
       case '--harmony-proxies':
@@ -39,21 +26,26 @@ module.exports = function() {
         args.unshift(arg);
         break;
       default:
-        if (0 == arg.indexOf('--trace')) args.unshift(arg);
+        if (0 == arg.indexOf('--trace')) special.unshift(arg);
         else args.push(arg);
         break;
     }
   });
 
-  var proc = spawn(process.argv[0], args, { customFds: [ 0, 1, 2 ] });
+  // has special args
+  if (args[0] != process.argv[1]) {
+    var proc = spawn(process.argv[0], args, { customFds: [ 0, 1, 2 ] });
 
-  proc.on('exit', function(code, signal) {
-    process.on('exit', function(){
-      if (signal) {
-        process.kill(process.pid, signal);
-      } else {
-        process.exit(code);
-      }
+    proc.on('exit', function(code, signal) {
+      process.on('exit', function(){
+        if (signal) {
+          process.kill(process.pid, signal);
+        } else {
+          process.exit(code);
+        }
+      });
     });
-  });
-};
+
+    module.exports = true;
+  }
+}
